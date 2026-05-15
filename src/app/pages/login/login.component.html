@@ -1,0 +1,253 @@
+<main class="page-shell login-main" role="main">
+  <div class="app-scroll login-scroll" appIosScrollContainer>
+    <header class="login-top-header">
+      <div class="login-top-header__inner">
+        <div class="login-top-header__brand">
+          <mat-icon class="login-top-header__logo" aria-hidden="true">smartphone</mat-icon>
+          <span class="login-top-header__title">Mobile App</span>
+        </div>
+        <button
+          type="button"
+          mat-icon-button
+          class="login-top-header__action"
+          aria-label="Help"
+        >
+          <mat-icon>help_outline</mat-icon>
+        </button>
+      </div>
+    </header>
+
+    <div class="login-wrapper">
+      <mat-card class="login-card">
+        <header class="login-header">
+          <div class="login-brand" aria-hidden="true">
+            <mat-icon>lock</mat-icon>
+          </div>
+          <h1 class="login-title">Welcome back</h1>
+          <p class="login-subtitle">Sign in to continue to your account</p>
+        </header>
+
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form" novalidate>
+          <mat-form-field appearance="outline" class="login-field full-width">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              type="email"
+              formControlName="email"
+              placeholder="you@example.com"
+              autocomplete="email"
+              inputmode="email"
+            />
+            <mat-icon matPrefix>mail</mat-icon>
+            @if (getControl('email')?.valid && getControl('email')?.touched) {
+              <mat-icon matSuffix class="field-valid">check_circle</mat-icon>
+            }
+            @if (hasError('email', 'required') || hasError('email', 'email')) {
+              <mat-error>{{ getErrorMessage('email') }}</mat-error>
+            }
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="login-field full-width">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              type="email"
+              formControlName="email"
+              placeholder="you@example.com"
+              autocomplete="email"
+              inputmode="email"
+            />
+            <mat-icon matPrefix>mail</mat-icon>
+            @if (getControl('email')?.valid && getControl('email')?.touched) {
+              <mat-icon matSuffix class="field-valid">check_circle</mat-icon>
+            }
+            @if (hasError('email', 'required') || hasError('email', 'email')) {
+              <mat-error>{{ getErrorMessage('email') }}</mat-error>
+            }
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="login-field full-width">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              type="email"
+              formControlName="email"
+              placeholder="you@example.com"
+              autocomplete="email"
+              inputmode="email"
+            />
+            <mat-icon matPrefix>mail</mat-icon>
+            @if (getControl('email')?.valid && getControl('email')?.touched) {
+              <mat-icon matSuffix class="field-valid">check_circle</mat-icon>
+            }
+            @if (hasError('email', 'required') || hasError('email', 'email')) {
+              <mat-error>{{ getErrorMessage('email') }}</mat-error>
+            }
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="login-field full-width">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              type="email"
+              formControlName="email"
+              placeholder="you@example.com"
+              autocomplete="email"
+              inputmode="email"
+            />
+            <mat-icon matPrefix>mail</mat-icon>
+            @if (getControl('email')?.valid && getControl('email')?.touched) {
+              <mat-icon matSuffix class="field-valid">check_circle</mat-icon>
+            }
+            @if (hasError('email', 'required') || hasError('email', 'email')) {
+              <mat-error>{{ getErrorMessage('email') }}</mat-error>
+            }
+          </mat-form-field><mat-form-field appearance="outline" class="login-field full-width">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              type="email"
+              formControlName="email"
+              placeholder="you@example.com"
+              autocomplete="email"
+              inputmode="email"
+            />
+            <mat-icon matPrefix>mail</mat-icon>
+            @if (getControl('email')?.valid && getControl('email')?.touched) {
+              <mat-icon matSuffix class="field-valid">check_circle</mat-icon>
+            }
+            @if (hasError('email', 'required') || hasError('email', 'email')) {
+              <mat-error>{{ getErrorMessage('email') }}</mat-error>
+            }
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="login-field full-width">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              type="email"
+              formControlName="email"
+              placeholder="you@example.com"
+              autocomplete="email"
+              inputmode="email"
+            />
+            <mat-icon matPrefix>mail</mat-icon>
+            @if (getControl('email')?.valid && getControl('email')?.touched) {
+              <mat-icon matSuffix class="field-valid">check_circle</mat-icon>
+            }
+            @if (hasError('email', 'required') || hasError('email', 'email')) {
+              <mat-error>{{ getErrorMessage('email') }}</mat-error>
+            }
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="login-field full-width">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              type="email"
+              formControlName="email"
+              placeholder="you@example.com"
+              autocomplete="email"
+              inputmode="email"
+            />
+            <mat-icon matPrefix>mail</mat-icon>
+            @if (getControl('email')?.valid && getControl('email')?.touched) {
+              <mat-icon matSuffix class="field-valid">check_circle</mat-icon>
+            }
+            @if (hasError('email', 'required') || hasError('email', 'email')) {
+              <mat-error>{{ getErrorMessage('email') }}</mat-error>
+            }
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="login-field full-width city-search-field">
+            <mat-label>City</mat-label>
+            <input
+              matInput
+              type="text"
+              formControlName="city"
+              placeholder="Search city..."
+              [matAutocomplete]="cityAutocomplete"
+            />
+            <mat-icon matPrefix>search</mat-icon>
+            @if (getControl('city')?.valid && getControl('city')?.touched) {
+              <mat-icon matSuffix class="field-valid">check_circle</mat-icon>
+            }
+            @if (hasError('city', 'required') || hasError('city', 'invalidCity')) {
+              <mat-error>{{ getErrorMessage('city') }}</mat-error>
+            }
+            <mat-autocomplete #cityAutocomplete="matAutocomplete" autoActiveFirstOption>
+              @for (city of filteredCities$ | async; track city) {
+                <mat-option [value]="city">{{ city }}</mat-option>
+              }
+              @if ((filteredCities$ | async)?.length === 0) {
+                <mat-option disabled>No cities found</mat-option>
+              }
+            </mat-autocomplete>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="login-field full-width">
+            <mat-label>Password</mat-label>
+            <input
+              matInput
+              [type]="getPasswordInputType()"
+              formControlName="password"
+              placeholder="Enter your password"
+              autocomplete="current-password"
+            />
+            <mat-icon matPrefix>lock</mat-icon>
+            <button
+              type="button"
+              mat-icon-button
+              matSuffix
+              class="password-toggle"
+              (click)="togglePasswordVisibility()"
+              [attr.aria-label]="showPassword$() ? 'Hide password' : 'Show password'"
+            >
+              <mat-icon>{{ showPassword$() ? 'visibility' : 'visibility_off' }}</mat-icon>
+            </button>
+            @if (
+              hasError('password', 'required') ||
+              hasError('password', 'minlength') ||
+              hasError('password', 'maxlength')
+            ) {
+              <mat-error>{{ getErrorMessage('password') }}</mat-error>
+            }
+          </mat-form-field>
+
+          <div class="login-form-footer">
+            <mat-checkbox formControlName="rememberMe" color="primary">
+              Remember me
+            </mat-checkbox>
+            <button type="button" class="forgot-link" (click)="onForgotPassword()">
+              Forgot password?
+            </button>
+          </div>
+
+          <button
+            type="submit"
+            mat-raised-button
+            color="primary"
+            class="login-submit"
+            [disabled]="submitButtonDisabled()"
+            [attr.aria-busy]="isLoading$()"
+          >
+            @if (isLoading$()) {
+              <mat-spinner diameter="22"></mat-spinner>
+              <span>Signing in...</span>
+            } @else {
+              <ng-container>
+                <mat-icon>login</mat-icon>
+                <span>Sign in</span>
+              </ng-container>
+            }
+          </button>
+        </form>
+
+        <footer class="login-footer">
+          <p>
+            Don&apos;t have an account?
+            <a routerLink="/signup" class="signup-link">Create one</a>
+          </p>
+        </footer>
+      </mat-card>
+    </div>
+  </div>
+</main>
