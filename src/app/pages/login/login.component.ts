@@ -27,6 +27,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatCardModule } from '@angular/material/card';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { IosScrollContainerDirective } from '../../shared/directives/ios-scroll-container.directive';
+import { IosDismissKeyboardDirective } from '../../shared/directives/ios-dismiss-keyboard.directive';
 
 const CITY_NAMES = [
   'Ahmedabad',
@@ -56,7 +57,8 @@ const CITY_NAMES = [
     MatProgressSpinnerModule,
     MatCardModule,
     MatAutocompleteModule,
-    IosScrollContainerDirective
+    IosScrollContainerDirective,
+    IosDismissKeyboardDirective
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'

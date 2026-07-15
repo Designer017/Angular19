@@ -2,6 +2,20 @@
 // iOS SAFARI / PWA / WKWebView — FIXED SHELL + INNER SCROLL ONLY
 // ============================================================================
 
+@mixin hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+  }
+}
+
 :root {
   --app-height: 100dvh;
   --visible-viewport-top: 0px;
@@ -30,7 +44,6 @@ app-root {
   overflow: hidden;
 }
 
-// Full-screen shell — never resize on keyboard (prevents header blank gap)
 .app-shell {
   position: fixed;
   inset: 0;
@@ -67,21 +80,60 @@ app-root {
   scroll-behavior: smooth;
   touch-action: pan-y;
 
-  &::-webkit-scrollbar {
-    width: 8px;
-  }
+  @media (min-width: 769px) {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-gray-300) transparent;
 
-  &::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: var(--color-gray-300);
-    border-radius: var(--radius-full);
-
-    &:hover {
-      background: var(--color-gray-400);
+    &::-webkit-scrollbar {
+      width: 8px;
     }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--color-gray-300);
+      border-radius: var(--radius-full);
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Hide iOS default scroll bars / indicators when keyboard is open
+// Requires html.keyboard-open (set by IosViewportService on input focus)
+// ---------------------------------------------------------------------------
+html.ios.keyboard-open,
+html.keyboard-open {
+  @include hide-scrollbar;
+
+  body,
+  app-root,
+  .app-shell,
+  .page-shell {
+    overflow: hidden;
+    @include hide-scrollbar;
+  }
+
+  .app-scroll,
+  [appIosScrollContainer] {
+    overflow-x: hidden;
+    overflow-y: auto;
+    @include hide-scrollbar;
+  }
+}
+
+// iPhone / iPad: hide scroll indicators on inner container at all times
+@supports (-webkit-touch-callout: none) {
+  html.ios {
+    @include hide-scrollbar;
+
+    .app-scroll,
+    [appIosScrollContainer] {
+      @include hide-scrollbar;
+    }
+  }
+
+  html.ios.keyboard-open,
+  html.ios.keyboard-open body {
+    @include hide-scrollbar;
+    overflow: hidden !important;
   }
 }
 

@@ -423,23 +423,37 @@ input[type='reset'] {
 }
 
 // ============================================================================
-// SCROLLBAR STYLES
+// SCROLLBAR STYLES (desktop); hidden on iOS when keyboard is open
 // ============================================================================
 
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+@media (min-width: 769px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-gray-300);
+    border-radius: var(--radius-full);
+
+    &:hover {
+      background: var(--color-gray-400);
+    }
+  }
 }
 
-::-webkit-scrollbar-track {
-  background: transparent;
-}
+html.keyboard-open {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 
-::-webkit-scrollbar-thumb {
-  background: var(--color-gray-300);
-  border-radius: var(--radius-full);
-
-  &:hover {
-    background: var(--color-gray-400);
+  &::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
   }
 }
